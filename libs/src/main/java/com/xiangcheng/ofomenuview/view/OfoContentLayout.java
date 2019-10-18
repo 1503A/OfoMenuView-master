@@ -34,11 +34,9 @@ public class OfoContentLayout extends LinearLayout {
     public OfoContentLayout(Context context) {
         super(context);
     }
-
     public OfoContentLayout(Context context, AttributeSet attrs) {
         super(context, attrs);
     }
-
     public OfoContentLayout(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }

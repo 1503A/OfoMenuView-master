@@ -75,14 +75,17 @@ public class OfoMenuLayout extends RelativeLayout {
         View.inflate(context, R.layout.menu_view_layout, this);
         ofoContentLayout = ((OfoContentLayout) findViewById(R.id.ofo_content));
         menu = (FrameLayout) findViewById(R.id.menu_content);
+        // 设置颜色  头部 。
         if (ofoBackColor != -1) {
             findViewById(R.id.top_back).setBackgroundColor(context.getResources().getColor(ofoBackColor));
         }
         if (userIcon == -1) {
             userIcon = R.mipmap.default_avatar_img;
         }
+        // 头像 。。
         menuBrawable = new MenuBrawable(BitmapFactory.decodeResource(getResources(), userIcon), context, menu, radian);
-        menu.setBackground(menuBrawable);
+        menu.setBackground(menuBrawable); // todo  1
+        // 动态设置 头部的尺寸 。
         if (dimens != -1) {
             float dimension = context.getResources().getDimension(dimens);
             ViewGroup.LayoutParams layoutParams = ((ViewGroup) findViewById(R.id.top_back)).getLayoutParams();
@@ -93,11 +96,12 @@ public class OfoMenuLayout extends RelativeLayout {
             contentLp.setMargins(0, (int) (dimension - menuBrawable.getArcY()), 0, 0);
             menuContent.setLayoutParams(contentLp);
         }
+        // 关闭图标 。
         if (closeIcon != -1) {
             ((ImageView) findViewById(R.id.close)).setImageResource(closeIcon);
         }
 
-        //给content部分设置item
+        //给content部分设置item  添加  view item `
         ofoContentLayout.setItemContentViews(itemContentViews);
 
         //关闭menu

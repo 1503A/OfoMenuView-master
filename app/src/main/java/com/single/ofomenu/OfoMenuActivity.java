@@ -38,6 +38,7 @@ public class OfoMenuActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.TRANSPARENT);
         }
+
         ofoMenuManager = new OfoMenuManager.Builder(this)
                 //CONCAVE：凹进去；CONVEX：凸出来
                 .setRadian(MenuBrawable.CONVEX)
@@ -49,6 +50,7 @@ public class OfoMenuActivity extends AppCompatActivity {
                 .addItemContentView(R.layout.item_xingcheng)
                 .addItemContentView(R.layout.item_ziliao)
                 .build();
+
         ((ViewGroup) findViewById(android.R.id.content)).addView(ofoMenuManager.getRootView());
         findViewById(R.id.start_ofo).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +58,10 @@ public class OfoMenuActivity extends AppCompatActivity {
                 ofoMenuManager.open();
             }
         });
+
+
+
+
         ofoMenuManager.setOfoMenuStatusListener(new OfoMenuLayout.OfoMenuStatusListener() {
             @Override
             public void onOpen() {
